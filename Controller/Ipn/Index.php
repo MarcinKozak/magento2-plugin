@@ -180,6 +180,8 @@ class Index extends Action {
         $this->helper->logInfo('IPN status: ' . $ipn->status);
 		
 		if ($ipn->status === 'paid' || $ipn->status === 'confirmed') {
+            $payment = null;
+
 			try{				
 			    $payment = $this->payment->setOrder($order);
 			}
